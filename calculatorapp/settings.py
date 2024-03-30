@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4*zxg20c(a=^^ug=b8+!d-7&8^$0+!_qa*y_=b&3q(sc@_2kc&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,12 +49,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
+
 ROOT_URLCONF = 'calculatorapp.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates/calculatorapp')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
