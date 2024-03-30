@@ -1,0 +1,187 @@
+margin: top left bottom right
+in html when we do <a href='#about'>ABout it will  go to that div part which has id='about' so when i click on about on navbar it will slide down to about content
+<nav class="              fixed-top'> this will fixed our navbar even if we scroll
+
+
+
+
+Open cmd
+pip install django
+
+type D:
+lcoal drive D open choose django folder you created 
+now type this command django-admin startproject myproject(or any name you want to give)
+cd myproject
+
+
+//manage.py is to run django app like we do npm start ij nodejs
+python manage.py startapp myapp
+python manage.py startapp myapp2(this will create another folder onsdie myproject folder)
+python manage.py runserver
+
+
+now again create inside django folder django-admin startproject myfirstproject
+open another cmd and run pip install virtualenv
+and come back to myfirstproject type virtualenv aayush(name as per your choice)
+aayush\Scripts\activate and enter
+
+do iti n only virtual environment
+cd myfirstproject and type pip freeze > requirements.txt
+pip install -r requirements.txt
+
+
+
+URL REQUESTS django
+now go to myfirstProject-> myfirstproject-> settings _> INSTALLED_APPS = [ 'myfirstapp']  //type this in a array like struction with named INSTALLED_APPS
+
+
+now create another file same as myfirstproject file that is "urls.py" which
+same file need to create in myfirstapp
+
+now write some line in urls.py of myfirstproject 
+from django.urls import path , include line 17 and line 21 path('', include('myfirstapp.urls))  '' for root directory to mention the urls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS file   margin: 0 auto means to put the content whethe rin div or whatever conyainer in center
+
+
+write this lines in urls.py of myfirstapp
+
+from django.urls import path
+from . import views 
+
+urlpatterns = [
+    path('',views.myfunctioncall,name='index')
+]
+
+write this liens in in views.py of myfirstapp folder
+
+
+
+//addes this in settings in mof myfirstproject settings last line for static files access like png images
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
+
+from django.shortcuts import render
+from django.http import HttpResponse , JsonResponse
+# Create your views here.
+
+def myfunctioncall(request):
+    return HttpResponse("Hello World")
+
+
+now create templates and static folder and 
+then goe back in settinggs of myfirstproject/myfirstproject folder
+in views and url files make changes
+
+
+
+
+
+create forms.py in myfirstapp folder
+then in forms.py
+write from django i;m[ort forms
+.\venv\Scripts\activate
+python manage.py runserver
+
+now go to views of myfirstapp and def my form and in top from .forms import *(any form you want
+
+
+
+
+
+
+# 404 Html page 
+do settings in myfirstproject>>>> seetings.py 
+DEBUG=False   27 line  mean sdebug false means our aplication is in deployment mode
+and do ALlowed_HOSTS = [*] put * in empty array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Calculator app
+
+type this command for new project in django folder
+django-admin startproject djangoprojects
+pythopn manage.py runserver
+
+then type this command 
+python manage.py startapp calculatorapp (like we do in myfirstproject we created myfirstapp)
+
+then type this virtual env creation like we created aayush in myfirstproject
+virtualenv myenv 
+.\myenv\Scripts\activate
+python manage.py runserver will not work because django not install int he virutla environment
+
+pip install django
+
+then type this command 
+pip freeze > requirements.txt
+'enter'
+open requirements.txt 
+and change ==  to >=  (iF throw some error revert >= this back to ==)
+
+go to djangoprojects-> settings
+then Go to Templates array of objects and change DIRS
+
+DIRS: [os.path.join(BASE_DIR,'templates/calculatorapp')],   #THIS IS IMPORTSNT WE ARE RENDERIN GTO INSIDE FOLDER CALCULATOR APP of templates
+
+then Go to Static URL and below this add lines
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR,'static'),
+]  with import os at the top
+
+ create two folders - templates and static
+
+then go to djangoprojects -> urls.py
+add include in from django.urls improt path , include <-
+
+and add path('calculatorapp',include('calculator.urls')) in urlpatterns
+
+
+create urls.py in calculatorapp and write these starting code
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index')
+]
